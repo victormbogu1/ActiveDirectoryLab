@@ -86,7 +86,7 @@ Set Lease Duration: I will set the lease duration to 8 days. This duration is im
 
 [![Screenshot-2024-07-06-151240.png](https://i.postimg.cc/3J0Qw2Jf/Screenshot-2024-07-06-151240.png)](https://postimg.cc/crWb9g3f)
 
-To download my PowerShell script from the internet, I need web browsing enabled, which requires disabling security features on the Domain Controller. While I'd never consider this in a real production environment due to the associated security risks, it's not a concern in this lab setting. I could still browse the internet without disabling these features, but it would generate frequent warnings for every webpage visited, which is quite annoying. To view the full code, please refer to the top of this repository. The script is located under CREATE_USERS.ps1
+To download my PowerShell script from the internet, I need web browsing enabled, which requires disabling security features on the Domain Controller. While I'd never consider this in a real production environment due to the associated security risks, it's not a concern in this lab setting. I could still browse the internet without disabling these features, but it would generate frequent warnings for every webpage visited, which is quite annoying. To view the full code, please refer to the top of this repository. The script is located under CREATE_USERS.ps1 and I gave brief explaination of this script
 
 [![Screenshot-2024-07-04-205249.png](https://i.postimg.cc/QtdRZTyb/Screenshot-2024-07-04-205249.png)](https://postimg.cc/sBbnpvyQ)
 
