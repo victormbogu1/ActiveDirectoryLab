@@ -15,7 +15,22 @@ This project demonstrates the creation of an Active Directory home lab environme
   + [Windows Sever 2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019)
 ## Program walk-through
 
-[![Screenshot-2024-07-06-010521.png](https://i.postimg.cc/K8z5rDCx/Screenshot-2024-07-06-010521.png)](https://postimg.cc/XpRFndVz)
+
+
+[![Untitled-Diagram-drawio-2.png](https://i.postimg.cc/zf2gBJMS/Untitled-Diagram-drawio-2.png)](https://postimg.cc/xkHCpS9c)
+
+
+
+A brief explaination of the above diagram
+The IP address 172.16.0.1 falls within the range of private IP addresses, specifically within the range 172.16.0.0 to 172.31.255.255. This range is reserved for private use and is not routable on the public internet. Instead, it is typically used within local networks (such as home, office, or enterprise networks) for internal communication as stated previouly this project lab replicates a business environment setup.
+
+A DHCP (Dynamic Host Configuration Protocol) scope is a range of IP addresses that a DHCP server can assign to clients on a network. When a client device (such as a computer, smartphone, or tablet) connects to the network, the DHCP server assigns it an IP address from this range.
+
+The DHCP scope 172.16.0.100-200 in the diagram means the following:
+IP Address Range: The DHCP server can assign IP addresses ranging from 172.16.0.100 to 172.16.0.200
+Total Addresses Available: There are 101 possible IP addresses within this range (including both endpoints: 172.16.0.100 and 172.16.0.200)
+Network Usage: Devices on the network that request an IP address via DHCP will receive one from this pool of addresses. This range is used to dynamically allocate IP addresses to devices on the network
+For example, if a new device joins the network and requests an IP address from the DHCP server, the server might assign it 172.16.0.101, and another device might receive 172.16.0.102, and so on, up to 172.16.0.200.
 
 After installing VirtualBox and the extension pack, Windows 10 enterprise was downloaded to serve as the client-server. For the Virtual Machine hosting the Domain Controller, two network adapters are required: a NAT adapter using the host IP address from the home router, and an Internal Network Adapter (intnet) to enable communication between the Domain Controller and other Virtual Machines acting as client machines. Refer to the initial diagram for setup details.
 
@@ -104,15 +119,15 @@ Note It uses the internal network
 
 [![Screenshot-2024-07-04-213334.png](https://i.postimg.cc/mr85jrgF/Screenshot-2024-07-04-213334.png)](https://postimg.cc/3y01JYpK)
 
-I noticed that the Clientvic virtual machine had no network access, likely due to skipping the previous network configuration in RAS or DHCP. However, I identified the issue—I forgot to configure the server option in DHCP that allows the router to assign IP addresses to client machines. As you can see below, there is no associated gateway, preventing network access. To resolve this, I need to revisit the DHCP configuration
+I noticed that the Clientvicm virtual machine had no network access, likely due to skipping the previous network configuration in RAS or DHCP. However, I identified the issue I forgot to configure the server option in DHCP by associating the IP address 172.16.0.1 which allows the router to assign IP addresses to client machines. As you can see below, there is no associated gateway, preventing network access. To resolve this, I need to revisit the DHCP configuration
 
 [![Screenshot-2024-07-06-152035.png](https://i.postimg.cc/GtcP5FgL/Screenshot-2024-07-06-152035.png)](https://postimg.cc/ph6n9Ft4)
 
-The internal IP of the client server has been linked with the router to enable network access
+The internal IP of the client machine has been linked with the router to enable network access. This setup helps manage IP addresses efficiently within a local network, ensuring that each device gets a unique IP address without manual configuration
 
 [![Screenshot-2024-07-06-152254.png](https://i.postimg.cc/QdRQ3GYn/Screenshot-2024-07-06-152254.png)](https://postimg.cc/rDN01bkS)
 
-Confirmed that the client can access the network, as shown below with a configured default gateway
+Confirmed that the client can access the network, as shown below with a configured default gateway 
 
 [![Screenshot-2024-07-06-152447.png](https://i.postimg.cc/KjqTpdgf/Screenshot-2024-07-06-152447.png)](https://postimg.cc/JHXtGYxH)
 
